@@ -1,0 +1,160 @@
+<html>
+<head>
+  <title>Calculator</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Calculator</h1>
+
+
+
+
+<form>
+<input id="output" class="answerbox" type="text" size="40">
+<br>
+<input type="button" class="number" name="Button7" value="7" onclick="enterNumber('7')">
+<input type="button" class="number" name="Button8" value="8" onclick="enterNumber('8')">
+<input type="button" class="number" name="Button9" value="9" onclick="enterNumber('9')">
+<br>
+<input type="button" class="number" name="Button4" value="4" onclick="enterNumber('4')">
+<input type="button" class="number" name="Button5" value="5" onclick="enterNumber('5')">
+<input type="button" class="number" name="Button6" value="6" onclick="enterNumber('6')">
+<br>
+<input type="button" class="number" name="Button1" value="1" onclick="enterNumber('1')">
+<input type="button" class="number" name="Button2" value="2" onclick="enterNumber('2')">
+<input type="button" class="number" name="Button3" value="3" onclick="enterNumber('3')">
+<br>
+<input type="button" class="number" name="Button10" value="0" onclick="enterNumber('0')">
+<input type="button" class="equals" name="Button15" value="=" onclick="executeMath()">
+<input type="button" class="clear" name="Button18" value="clear" onclick="clearAll()">
+<br>
+<input type="button" class="operation" name="Button11" value="*" onclick="multiplication()">
+<input type="button" class="operation" name="Button12" value="+" onclick="addition()">
+<input type="button" class="operation" name="Button13" value="-" onclick="subtraction()">
+<input type="button" class="operation" name="Button14" value="/" onclick="division()">
+<input type="button" class="operation" name="Button16" value=" mod " onclick="modulos()">
+<input type="button" class="operation" name="Button17" value="√" onclick="squareRoot()">
+<input type="button" class="operation" name="Button20" value="^" onclick="exponents()">
+<br>
+
+
+</form>
+</body>
+
+
+
+
+
+
+
+
+
+
+<script>
+    var number1 = "";
+    var operator = "";
+    var output = document.getElementById("output");
+    function enterNumber(number){
+      output.value += number;
+    }
+
+
+    //functions to add the operator symbol to the input box and label the line as a certain operation
+    function addition(){
+      number1 = output.value;
+      operator = "+";
+      output.value += '+';
+    }
+    function subtraction(){
+      number1 = output.value;
+      operator = "-";
+      output.value += '-';
+    }
+    function multiplication(){
+      number1 = output.value;
+      operator = "*";
+      output.value += '*';
+    }
+    function division(){
+      number1 = output.value;
+      operator = "/";
+      output.value += '/';
+    }
+    function modulos(){
+      number1 = output.value;
+      operator = "mod";
+      output.value += 'mod';
+    }
+    function squareRoot(){
+      operator = "√";
+      output.value += '√';
+    }
+    function exponents(){
+      number1 = output.value;
+      operator = "^";
+      output.value += '^';
+    }
+    function clearAll(){
+      output.value = '';
+    }
+    //executes the math/evaluation of the operations; onclick of equal sign
+    function executeMath(){
+      var result;
+      if (operator == "+"){
+        var operatorposition = output.value.indexOf(operator);
+        var number2 = output.value.slice(operatorposition + 1);
+        result = Number(number1) + Number(number2);
+        output.value = "";
+        output.value = result
+      }
+      else if (operator == "-"){
+        var operatorposition= output.value.indexOf(operator);
+        var number2 = output.value.slice(operatorposition + 1);
+        result = Number(number1) - Number(number2);
+        output.value = "";
+        output.value = result
+      }
+      else if (operator == "*") {
+        var operatorposition = output.value.indexOf(operator);
+        var number2 = output.value.slice(operatorposition + 1);
+        result = Number(number1) * Number(number2);
+        output.value = "";
+        output.value = result
+      }
+      else if (operator == "/") {
+        var operatorposition = output.value.indexOf(operator);
+        var number2 = output.value.slice(operatorposition + 1);
+        result = Number(number1) / Number(number2);
+        output.value = "";
+        output.value = result
+      }
+      else if (operator == "√") {
+        var operatorposition = output.value.indexOf(operator);
+        number1 = output.value.slice(operatorposition + 1);
+        result = Math.sqrt(Number(number1))
+        output.value = "";
+        output.value = result
+      }
+      else if (operator == "mod") {
+        var operatorposition = output.value.indexOf(operator);
+        var number2 = output.value.slice(operatorposition + 3);
+        result = number1 % number2
+        output.value = "";
+        output.value = result
+        console.log(output.value)
+      }
+      else if (operator == "^") {
+        var operatorposition = output.value.indexOf(operator);
+        var number2 = output.value.slice(operatorposition + 1);
+        result = Math.pow(number1,number2)
+        output.value = "";
+        output.value = result
+      }
+ 
+    }
+
+
+
+
+  </script>
+

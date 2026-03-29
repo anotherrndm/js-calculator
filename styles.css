@@ -1,0 +1,29 @@
+body {
+    background-color: beige;
+    text-align:center;
+}
+.number {
+    background-color: ivory;
+    width: 65px;
+    height: 50px;
+}
+.operation {
+    background-color: greenyellow;
+    width: 65px;
+    height: 50px;
+}
+.equals {
+    background-color: blue;
+    width: 65px;
+    height: 50px;
+}
+.clear {
+    background-color: red;
+    width: 65px;
+    height: 50px;
+}
+.answerbox {
+    width: 300px;
+    height: 35px;
+    font-size: large;
+}
